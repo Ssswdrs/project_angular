@@ -1,8 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PersonalComponent } from 'src/app/components/personal/personal.component'
+import { PersonalComponent } from './components/personal/personal.component'
+import { LayoutComponent } from './components/layout/layout.component'
 const routes: Routes = [
-  {path: 'personal' , component : PersonalComponent}
+  {path: '' , component : LayoutComponent,
+    children: [
+      {
+        path: 'personal', component: PersonalComponent
+      },
+      
+    ]
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
